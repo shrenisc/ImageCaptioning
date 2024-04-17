@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Captioning</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Upload Image</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="custom-file mb-3">
+                <input type="file" class="custom-file-input" id="customFile" name="file" accept="image/*" onchange="updateLabel()">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Upload">
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function updateLabel() {
+            var input = document.getElementById('customFile');
+            var label = input.files[0].name;
+            input.nextElementSibling.innerText = label;
+        }
+    </script>
+</body>
+</html>
