@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Image Caption Result</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Captioning Result</title>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">Generated Caption</h1>
-        <img src="{{ image }}" alt="Uploaded Image" class="img-fluid mb-4">
-        <p>{{ caption }}</p>
-        <a href="/" class="btn btn-primary">Upload Another Image</a>
+    <h1>Image Caption</h1>
+    <div>
+        <!-- Display uploaded image -->
+        <img src="{{ image }}" alt="Uploaded Image" style="max-width: 500px;">
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div>
+        <!-- Display generated caption -->
+        <p>{{ caption }}</p>
+    </div>
 </body>
 </html>
