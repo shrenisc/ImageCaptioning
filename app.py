@@ -27,8 +27,18 @@ model = load_model('image_captioning_model.h5')
 tokenizer = Tokenizer()
 with open(os.path.join(BASE_DIR, 'features.pkl'), 'rb') as f:
     features = pickle.load(f)
-with open(os.path.join(BASE_DIR, 'tokenizer.pkl'), 'rb') as f:
-    tokenizer = pickle.load(f)
+    
+with open('mapping.txt','rb') as f2:
+    mapping_dict=f2.read()
+    mapping=eval(mapping_dict)
+    
+all_captions=[]
+for key in mapping:
+    for caption in mapping[key]:
+        all_captions.append(caption)
+
+tokenizer.fit_on_texts(all_captions)
+vocab_size=len(tokenizer.word_index) + 1
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
